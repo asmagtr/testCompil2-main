@@ -1,0 +1,19 @@
+VAR_GLOBAL {
+INTEGER a ;
+INTEGER W=5,A,X,B,Bb,E,Aa,Cc,b,c;
+CHAR char[5];
+FLOAT n;
+}
+
+INSTRUCTION {
+a=5 ; 
+W=7;
+FOR(a=1 : 2 : W){
+    a=a+b+1;
+    A=6;
+}
+    WRITE("first: ", B, "\n");
+    WRITE("second: ", E, "\n");
+    WRITE("third: ", Cc, "\n");
+    READ(b);
+}
