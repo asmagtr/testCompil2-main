@@ -1,16 +1,20 @@
 VAR_GLOBAL {
-INTEGER a ;
-INTEGER W=5,A,X,B,Bb,E,Aa,Cc,b,c;
-CHAR char[5];
+INTEGER c[20] ;
+INTEGER a,W=5,A,X,B,Bb,E,Aa,Cc,b;
+
+CHAR char[5],v;
 FLOAT n;
 }
 
 INSTRUCTION {
-a=5 ; 
+a=5 ;
+char[1]="a";
+n=3; 
 W=7;
 FOR(a=1 : 2 : W){
     c=1;
 }
+    v="b" ;
     WRITE("first: ", B, "\n");
     WRITE("second: ", E, "\n");
     WRITE("third: ", Cc, "\n");

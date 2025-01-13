@@ -260,7 +260,7 @@ AFFECTATION: idf aff EXPRESSION
                     }
                     strcpy(typeIDF,getType($1,"Vecteur"));
                     if (strcmp(typeIDF,partie1_1)!=0 && strcmp(typeIDF,"/")!=0 && strcmp(partie1_1,"/")!=0) {
-                      if(strcmp(typeIDF,"REAL")!=0 || strcmp(partie1_1,"INTEGER")!=0 ){
+                      if(strcmp(typeIDF,"REAL")!=0 && strcmp(partie1_1,"INTEGER")!=0 && strcmp(typeIDF,"CHAR")!=0  ){
                         printf("\nFile '%s', line %d, character %d: semantic error : Type incompatibility.\n",file_name,nb_line,nb_character);
                         printf("HIII 5!");
                         YYABORT;
@@ -451,7 +451,7 @@ INDEX: idf
         }
      | integer 
         {
-          if(atof($1)<1){
+          if(atof($1)<0){
               printf("\nFile '%s', line %d, character %d: semantic error : Negative index value.\n",file_name,nb_line,nb_character);
               YYABORT;
           }
