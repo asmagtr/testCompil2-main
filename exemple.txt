@@ -9,8 +9,7 @@ INSTRUCTION {
 a=5 ; 
 W=7;
 FOR(a=1 : 2 : W){
-    a=a+b+1;
-    A=6;
+    c=1;
 }
     WRITE("first: ", B, "\n");
     WRITE("second: ", E, "\n");

@@ -10,23 +10,23 @@ extern int yylineno; // Declare the line number variable if used
 int nb_line=1;
 int nb_character=0;
 char *file_name;
-char taille[20];
 char typeIDF[20];
 char savet[20];
-int param=0;
 char para[20];
+char pas[20];
 
 char i[20];
 int deb_else;
 int fin_if;
-int fin_dowhile;
-int deb_dowhile;
+int fin_for;
+int deb_for;
 int qc;
 
 char partie1_1[20];
 char partie2_1[20];
 char partie1_2[20];
 char partie2_2[20];
+char index_start_for[20];
 char ch[20];
 char cat[20];
 int tmp=0;
@@ -560,31 +560,33 @@ OPCOMP: kwGT {$$=strdup($1);}
       | kwLT {$$=strdup($1);}
       | kwNE {$$=strdup($1);}
 ;
-BOUCLE: kwFOR po AFFECTATION dp INDEX dp INDEX pf ao INST af
+
+BOUCLECOND: kwFOR po AFFECTATION dp INDEX dp INDEX pf
             {
-                int debut_for = qc;
-                char index_start[20];
-                strcpy(index_start, $5);
+
+                deb_for = qc;
 
                 char index_end[20];
+                strcpy(index_start_for,$3);
                 strcpy(index_end, $7);
 
-                sprintf(temp, "T%d", tmp);
-                remplir_quad("<=", index_start, index_end, temp);
-                tmp++;
+                strcpy(pas,$5);
 
-                remplir_quad("BZ", temp, "<vide>", "<vide>");
-                int condition_quad = qc - 1;
+                remplir_quad("BGE", "<vide>", index_start_for, index_end);
+            }
+;
+BOUCLE: BOUCLECOND ao INST af
+            {
 
-                remplir_quad("+", index_start, "1", index_start);
-    
-                sprintf(i, "%d", debut_for);
+                remplir_quad("+", index_start_for, pas, index_start_for);
+                sprintf(i, "%d", deb_for);
                 remplir_quad("BR", i, "<vide>", "<vide>");
       
                 sprintf(i, "%d", qc);
-                mise_jr_quad(condition_quad, 2, i);
+                mise_jr_quad(deb_for, 2, i);
             }
 ;
+
 MEMBREIDF : idf                      
                 { 
                   if (!idf_existe($1,"Variable") && !idf_existe($1,"Constante")) {
