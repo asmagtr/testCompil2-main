@@ -528,10 +528,10 @@ static const yytype_uint16 yyrline[] =
       76,    79,   100,   109,   131,   150,   151,   152,   155,   165,
      191,   208,   209,   212,   213,   214,   215,   216,   219,   253,
      285,   313,   336,   360,   383,   407,   428,   441,   461,   467,
-     473,   479,   485,   491,   505,   515,   523,   532,   545,   554,
-     559,   564,   569,   576,   592,   599,   605,   606,   609,   610,
-     611,   612,   613,   614,   617,   631,   643,   652,   663,   666,
-     670,   676,   682,   686,   694,   700
+     473,   479,   485,   491,   505,   515,   524,   533,   546,   555,
+     560,   565,   570,   577,   593,   600,   606,   607,   610,   611,
+     612,   613,   614,   615,   618,   632,   644,   653,   664,   667,
+     671,   677,   683,   687,   695,   701
 };
 #endif
 
@@ -2108,14 +2108,15 @@ yyreduce:
     {
                 deb_else=qc;
                 fin_if=qc;
-                remplir_quad("BNZ"," ",(yyvsp[(2) - (2)].str),"<vide>");
+                sprintf(i,"%d",qc);
+                remplir_quad("BNZ",i,(yyvsp[(2) - (2)].str),"<vide>");
               ;}
     break;
 
   case 46:
 
 /* Line 1455 of yacc.c  */
-#line 524 "syntaxique.y"
+#line 525 "syntaxique.y"
     {
                 fin_if=qc;
                 remplir_quad("BR"," ","<vide>","<vide>");
@@ -2127,7 +2128,7 @@ yyreduce:
   case 47:
 
 /* Line 1455 of yacc.c  */
-#line 533 "syntaxique.y"
+#line 534 "syntaxique.y"
     {
                 diviserChaine((yyvsp[(2) - (2)].str),partie1_1,partie1_2);
                 if (strcmp(partie1_1,"LOGICAL")!=0 && strcmp(partie1_1,"/")!=0){
@@ -2143,7 +2144,7 @@ yyreduce:
   case 48:
 
 /* Line 1455 of yacc.c  */
-#line 546 "syntaxique.y"
+#line 547 "syntaxique.y"
     {
                 fin_if=qc;
                 remplir_quad("BR"," ","<vide>","<vide>");
@@ -2155,7 +2156,7 @@ yyreduce:
   case 49:
 
 /* Line 1455 of yacc.c  */
-#line 555 "syntaxique.y"
+#line 556 "syntaxique.y"
     {
                 sprintf(i,"%d",qc);
                 mise_jr_quad(fin_if,2,i);
@@ -2165,7 +2166,7 @@ yyreduce:
   case 50:
 
 /* Line 1455 of yacc.c  */
-#line 560 "syntaxique.y"
+#line 561 "syntaxique.y"
     {
                 sprintf(i,"%d",qc);
                 mise_jr_quad(fin_if,2,i);
@@ -2175,7 +2176,7 @@ yyreduce:
   case 51:
 
 /* Line 1455 of yacc.c  */
-#line 565 "syntaxique.y"
+#line 566 "syntaxique.y"
     {
                 sprintf(i,"%d",qc);
                 mise_jr_quad(fin_if,2,i);
@@ -2185,7 +2186,7 @@ yyreduce:
   case 52:
 
 /* Line 1455 of yacc.c  */
-#line 570 "syntaxique.y"
+#line 571 "syntaxique.y"
     {
                 sprintf(i,"%d",qc);
                 mise_jr_quad(fin_if,2,i);
@@ -2195,7 +2196,7 @@ yyreduce:
   case 53:
 
 /* Line 1455 of yacc.c  */
-#line 577 "syntaxique.y"
+#line 578 "syntaxique.y"
     { 
                 diviserChaine((yyvsp[(2) - (5)].str),partie1_1,partie1_2);
                 diviserChaine((yyvsp[(4) - (5)].str),partie2_1,partie2_2);
@@ -2216,7 +2217,7 @@ yyreduce:
   case 54:
 
 /* Line 1455 of yacc.c  */
-#line 593 "syntaxique.y"
+#line 594 "syntaxique.y"
     {
                 sprintf(temp,"T%d",tmp);
                 (yyval.str)=strdup(temp);
@@ -2228,7 +2229,7 @@ yyreduce:
   case 55:
 
 /* Line 1455 of yacc.c  */
-#line 600 "syntaxique.y"
+#line 601 "syntaxique.y"
     {
                 (yyval.str)=strdup((yyvsp[(2) - (3)].str));
               ;}
@@ -2237,63 +2238,63 @@ yyreduce:
   case 56:
 
 /* Line 1455 of yacc.c  */
-#line 605 "syntaxique.y"
+#line 606 "syntaxique.y"
     {(yyval.str)=strdup((yyvsp[(1) - (1)].str));;}
     break;
 
   case 57:
 
 /* Line 1455 of yacc.c  */
-#line 606 "syntaxique.y"
+#line 607 "syntaxique.y"
     {(yyval.str)=strdup((yyvsp[(1) - (1)].str));;}
     break;
 
   case 58:
 
 /* Line 1455 of yacc.c  */
-#line 609 "syntaxique.y"
+#line 610 "syntaxique.y"
     {(yyval.str)=strdup((yyvsp[(1) - (1)].str));;}
     break;
 
   case 59:
 
 /* Line 1455 of yacc.c  */
-#line 610 "syntaxique.y"
+#line 611 "syntaxique.y"
     {(yyval.str)=strdup((yyvsp[(1) - (1)].str));;}
     break;
 
   case 60:
 
 /* Line 1455 of yacc.c  */
-#line 611 "syntaxique.y"
+#line 612 "syntaxique.y"
     {(yyval.str)=strdup((yyvsp[(1) - (1)].str));;}
     break;
 
   case 61:
 
 /* Line 1455 of yacc.c  */
-#line 612 "syntaxique.y"
+#line 613 "syntaxique.y"
     {(yyval.str)=strdup((yyvsp[(1) - (1)].str));;}
     break;
 
   case 62:
 
 /* Line 1455 of yacc.c  */
-#line 613 "syntaxique.y"
+#line 614 "syntaxique.y"
     {(yyval.str)=strdup((yyvsp[(1) - (1)].str));;}
     break;
 
   case 63:
 
 /* Line 1455 of yacc.c  */
-#line 614 "syntaxique.y"
+#line 615 "syntaxique.y"
     {(yyval.str)=strdup((yyvsp[(1) - (1)].str));;}
     break;
 
   case 64:
 
 /* Line 1455 of yacc.c  */
-#line 618 "syntaxique.y"
+#line 619 "syntaxique.y"
     {
 
                 deb_for = qc;
@@ -2311,7 +2312,7 @@ yyreduce:
   case 65:
 
 /* Line 1455 of yacc.c  */
-#line 632 "syntaxique.y"
+#line 633 "syntaxique.y"
     {
 
                 remplir_quad("+", index_start_for, pas, index_start_for);
@@ -2326,7 +2327,7 @@ yyreduce:
   case 66:
 
 /* Line 1455 of yacc.c  */
-#line 644 "syntaxique.y"
+#line 645 "syntaxique.y"
     { 
                   if (!idf_existe((yyvsp[(1) - (1)].str),"Variable") && !idf_existe((yyvsp[(1) - (1)].str),"Constante")) {
                     printf("\nFile '%s', line %d, character %d: semantic error : Undeclared variable '%s'.\n",file_name,nb_line,nb_character,(yyvsp[(1) - (1)].str));
@@ -2340,7 +2341,7 @@ yyreduce:
   case 67:
 
 /* Line 1455 of yacc.c  */
-#line 653 "syntaxique.y"
+#line 654 "syntaxique.y"
     { 
                   if (!idf_existe((yyvsp[(1) - (4)].str),"Vecteur")) {
                     printf("\nFile '%s', line %d, character %d: semantic error : Undeclared variable '%s'.\n",file_name,nb_line,nb_character,(yyvsp[(1) - (4)].str));
@@ -2354,7 +2355,7 @@ yyreduce:
   case 69:
 
 /* Line 1455 of yacc.c  */
-#line 667 "syntaxique.y"
+#line 668 "syntaxique.y"
     {
             rechercher((yyvsp[(3) - (4)].str),"Idf","CHARACTER","/","-1","/",3);
           ;}
@@ -2363,7 +2364,7 @@ yyreduce:
   case 70:
 
 /* Line 1455 of yacc.c  */
-#line 671 "syntaxique.y"
+#line 672 "syntaxique.y"
     {
             rechercher((yyvsp[(3) - (4)].str),"Idf","CHARACTER","/","-1","/",3);
           ;}
@@ -2372,7 +2373,7 @@ yyreduce:
   case 71:
 
 /* Line 1455 of yacc.c  */
-#line 677 "syntaxique.y"
+#line 678 "syntaxique.y"
     {
             strcat(tab,(yyvsp[(1) - (2)].str));strcat(tab,(yyvsp[(2) - (2)].str));
             (yyval.str)=strdup(tab);
@@ -2383,7 +2384,7 @@ yyreduce:
   case 72:
 
 /* Line 1455 of yacc.c  */
-#line 683 "syntaxique.y"
+#line 684 "syntaxique.y"
     {
             (yyval.str)=strdup((yyvsp[(1) - (1)].str));
           ;}
@@ -2392,7 +2393,7 @@ yyreduce:
   case 73:
 
 /* Line 1455 of yacc.c  */
-#line 687 "syntaxique.y"
+#line 688 "syntaxique.y"
     {
             strcat(tab,(yyvsp[(1) - (3)].str));strcat(tab,(yyvsp[(2) - (3)].str));strcat(tab,(yyvsp[(3) - (3)].str));
             (yyval.str)=strdup(tab);
@@ -2403,7 +2404,7 @@ yyreduce:
   case 74:
 
 /* Line 1455 of yacc.c  */
-#line 695 "syntaxique.y"
+#line 696 "syntaxique.y"
     {
                 strcat(tab,(yyvsp[(1) - (4)].str));strcat(tab,(yyvsp[(2) - (4)].str));strcat(tab,(yyvsp[(3) - (4)].str));strcat(tab,(yyvsp[(4) - (4)].str));
                 (yyval.str)=strdup(tab);
@@ -2414,7 +2415,7 @@ yyreduce:
   case 75:
 
 /* Line 1455 of yacc.c  */
-#line 701 "syntaxique.y"
+#line 702 "syntaxique.y"
     {
                 strcat(tab,(yyvsp[(1) - (2)].str));strcat(tab,(yyvsp[(2) - (2)].str));
                 (yyval.str)=strdup(tab);
@@ -2425,7 +2426,7 @@ yyreduce:
 
 
 /* Line 1455 of yacc.c  */
-#line 2429 "syntaxique.tab.c"
+#line 2430 "syntaxique.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -2637,7 +2638,7 @@ yyreturn:
 
 
 /* Line 1675 of yacc.c  */
-#line 709 "syntaxique.y"
+#line 710 "syntaxique.y"
 
 
 int yyerror(char *msg) { 
