@@ -1595,7 +1595,7 @@ yyreduce:
                   miseajour((yyvsp[(3) - (6)].str),"Constante",(yyvsp[(2) - (6)].str),partie1_2,"/","/","SEMANTIQUE");
 
                 if (strcmp((yyvsp[(2) - (6)].str),partie1_1)!=0 && strcmp(partie1_1,"/")!=0) {
-                  if(strcmp((yyvsp[(2) - (6)].str),"REAL")!=0 || strcmp(partie1_1,"INTEGER")!=0 ){
+                  if(strcmp((yyvsp[(2) - (6)].str),"FLOAT")!=0 || strcmp(partie1_1,"INTEGER")!=0 ){
                     printf("\nFile '%s', line %d, character %d: semantic error : Type incompatibility.\n",file_name,nb_line,nb_character);
                     printf("HIII 1!");
                     YYABORT;
@@ -1633,7 +1633,7 @@ yyreduce:
                   miseajour((yyvsp[(2) - (6)].str),"Variable",(yyvsp[(1) - (6)].str),partie1_2,"/","/","SEMANTIQUE");
 
                 if (strcmp((yyvsp[(1) - (6)].str),partie1_1)!=0 && strcmp(partie1_1,"/")!=0) {
-                  if(strcmp((yyvsp[(1) - (6)].str),"REAL")!=0 || strcmp(partie1_1,"INTEGER")!=0 ){
+                  if(strcmp((yyvsp[(1) - (6)].str),"FLOAT")!=0 || strcmp(partie1_1,"INTEGER")!=0 ){
                     printf("\nFile '%s', line %d, character %d: semantic error : Type incompatibility.\n",file_name,nb_line,nb_character);
                     printf("HIII 2!");
                     YYABORT;
@@ -1693,7 +1693,7 @@ yyreduce:
                     }
                       miseajour((yyvsp[(2) - (5)].str),"Variable",savet,partie1_2,"/","/","SEMANTIQUE");
                     if (strcmp(getType((yyvsp[(2) - (5)].str),"Variable"),partie1_1)!=0 && strcmp(partie1_1,"/")!=0) {
-                      if(strcmp(getType((yyvsp[(2) - (5)].str),"Variable"),"REAL")!=0 || strcmp(partie1_1,"INTEGER")!=0 ){
+                      if(strcmp(getType((yyvsp[(2) - (5)].str),"Variable"),"FLOAT")!=0 || strcmp(partie1_1,"INTEGER")!=0 ){
                         printf("\nFile '%s', line %d, character %d: semantic error : Type incompatibility.\n",file_name,nb_line,nb_character);
                         printf("HIII 3!");
                         YYABORT;
@@ -1791,7 +1791,7 @@ yyreduce:
                       }
                     }
                     if (strcmp(typeIDF,partie1_1)!=0 && strcmp(typeIDF,"/")!=0 && strcmp(partie1_1,"/")!=0) {
-                      if(strcmp(typeIDF,"REAL")!=0 || strcmp(partie1_1,"INTEGER")!=0){
+                      if(strcmp(typeIDF,"FLOAT")!=0 || strcmp(partie1_1,"INTEGER")!=0){
                         printf("\nFile '%s', line %d, character %d: semantic error : Type incompatibility.\n",file_name,nb_line,nb_character);
                         printf("HIII 5!");
                         YYABORT;
@@ -1877,8 +1877,8 @@ yyreduce:
                       printf("HIII 7!");
                       YYABORT;
                     }
-                    if (strcmp(partie1_1,"REAL") == 0 || strcmp(partie2_1,"REAL") == 0 && strcmp(partie1_1,"/")!=0 && strcmp(partie2_1,"/")!=0){
-                      strcpy(cat,"REAL-");
+                    if (strcmp(partie1_1,"FLOAT") == 0 || strcmp(partie2_1,"FLOAT") == 0 && strcmp(partie1_1,"/")!=0 && strcmp(partie2_1,"/")!=0){
+                      strcpy(cat,"FLOAT-");
                       strcat(cat,temp);
                       (yyval.str)=strdup(cat);
                     }
@@ -1906,8 +1906,8 @@ yyreduce:
                       printf("HIII 8!");
                       YYABORT;
                     }
-                    if (strcmp(partie1_1,"REAL") == 0 || strcmp(partie2_1,"REAL") == 0 && strcmp(partie1_1,"/")!=0 && strcmp(partie2_1,"/")!=0){
-                      strcpy(cat,"REAL-");
+                    if (strcmp(partie1_1,"FLOAT") == 0 || strcmp(partie2_1,"FLOAT") == 0 && strcmp(partie1_1,"/")!=0 && strcmp(partie2_1,"/")!=0){
+                      strcpy(cat,"FLOAT-");
                       strcat(cat,temp);
                       (yyval.str)=strdup(cat);
                     }
@@ -1934,8 +1934,8 @@ yyreduce:
                       printf("HIII 9!");
                       YYABORT;
                     }
-                    if (strcmp(partie1_1,"REAL") == 0 || strcmp(partie2_1,"REAL") == 0 && strcmp(partie1_1,"/")!=0 && strcmp(partie2_1,"/")!=0){
-                      strcpy(cat,"REAL-");
+                    if (strcmp(partie1_1,"FLOAT") == 0 || strcmp(partie2_1,"FLOAT") == 0 && strcmp(partie1_1,"/")!=0 && strcmp(partie2_1,"/")!=0){
+                      strcpy(cat,"FLOAT-");
                       strcat(cat,temp);
                       (yyval.str)=strdup(cat);
                     }
@@ -1966,7 +1966,7 @@ yyreduce:
                       printf("HIII 10!");
                       YYABORT;
                     }
-                    strcpy(cat,"REAL-");
+                    strcpy(cat,"FLOAT-");
                     strcat(cat,temp);
                     (yyval.str)=strdup(cat);
                     remplir_quad("/",partie1_2,partie2_2,temp);
@@ -2021,7 +2021,7 @@ yyreduce:
 /* Line 1455 of yacc.c  */
 #line 462 "syntaxique.y"
     {
-                strcpy(cat,"REAL-");
+                strcpy(cat,"FLOAT-");
                 strcat(cat,(yyvsp[(1) - (1)].str));
                 (yyval.str)=strdup(cat);
               ;}
@@ -2201,7 +2201,7 @@ yyreduce:
                 diviserChaine((yyvsp[(4) - (5)].str),partie2_1,partie2_2);
                 sprintf(temp,"T%d",tmp);
                 if (strcmp(partie2_1,partie1_1)!=0 && strcmp(partie1_1,"/")!=0 && strcmp(partie2_1,"/")!=0) {
-                  if(!((strcmp(partie1_1,"REAL")==0 && strcmp(partie2_1,"INTEGER")==0) || (strcmp(partie2_1,"REAL")==0 && strcmp(partie1_1,"INTEGER")==0))){
+                  if(!((strcmp(partie1_1,"FLOAT")==0 && strcmp(partie2_1,"INTEGER")==0) || (strcmp(partie2_1,"FLOAT")==0 && strcmp(partie1_1,"INTEGER")==0))){
                     printf("\nFile '%s', line %d, character %d: semantic error : Type incompatibility.\n",file_name,nb_line,nb_character);
                     printf("HIII 13!");
                     YYABORT;

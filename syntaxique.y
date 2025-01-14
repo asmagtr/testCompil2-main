@@ -87,7 +87,7 @@ DECCONST:kwCONST TYPE idf aff EXPRESSION pvg
                   miseajour($3,"Constante",$2,partie1_2,"/","/","SEMANTIQUE");
 
                 if (strcmp($2,partie1_1)!=0 && strcmp(partie1_1,"/")!=0) {
-                  if(strcmp($2,"REAL")!=0 || strcmp(partie1_1,"INTEGER")!=0 ){
+                  if(strcmp($2,"FLOAT")!=0 || strcmp(partie1_1,"INTEGER")!=0 ){
                     printf("\nFile '%s', line %d, character %d: semantic error : Type incompatibility.\n",file_name,nb_line,nb_character);
                     printf("HIII 1!");
                     YYABORT;
@@ -117,7 +117,7 @@ DECSOLO: TYPE idf LISTVAR pvg
                   miseajour($2,"Variable",$1,partie1_2,"/","/","SEMANTIQUE");
 
                 if (strcmp($1,partie1_1)!=0 && strcmp(partie1_1,"/")!=0) {
-                  if(strcmp($1,"REAL")!=0 || strcmp(partie1_1,"INTEGER")!=0 ){
+                  if(strcmp($1,"FLOAT")!=0 || strcmp(partie1_1,"INTEGER")!=0 ){
                     printf("\nFile '%s', line %d, character %d: semantic error : Type incompatibility.\n",file_name,nb_line,nb_character);
                     printf("HIII 2!");
                     YYABORT;
@@ -172,7 +172,7 @@ LISTVARSOLO: vg idf LISTVAR
                     }
                       miseajour($2,"Variable",savet,partie1_2,"/","/","SEMANTIQUE");
                     if (strcmp(getType($2,"Variable"),partie1_1)!=0 && strcmp(partie1_1,"/")!=0) {
-                      if(strcmp(getType($2,"Variable"),"REAL")!=0 || strcmp(partie1_1,"INTEGER")!=0 ){
+                      if(strcmp(getType($2,"Variable"),"FLOAT")!=0 || strcmp(partie1_1,"INTEGER")!=0 ){
                         printf("\nFile '%s', line %d, character %d: semantic error : Type incompatibility.\n",file_name,nb_line,nb_character);
                         printf("HIII 3!");
                         YYABORT;
@@ -270,7 +270,7 @@ AFFECTATION: idf aff EXPRESSION
                       }
                     }
                     if (strcmp(typeIDF,partie1_1)!=0 && strcmp(typeIDF,"/")!=0 && strcmp(partie1_1,"/")!=0) {
-                      if(strcmp(typeIDF,"REAL")!=0 || strcmp(partie1_1,"INTEGER")!=0){
+                      if(strcmp(typeIDF,"FLOAT")!=0 || strcmp(partie1_1,"INTEGER")!=0){
                         printf("\nFile '%s', line %d, character %d: semantic error : Type incompatibility.\n",file_name,nb_line,nb_character);
                         printf("HIII 5!");
                         YYABORT;
@@ -343,8 +343,8 @@ EXPRESSION: EXPRESSION plus EXPRESSION
                       printf("HIII 7!");
                       YYABORT;
                     }
-                    if (strcmp(partie1_1,"REAL") == 0 || strcmp(partie2_1,"REAL") == 0 && strcmp(partie1_1,"/")!=0 && strcmp(partie2_1,"/")!=0){
-                      strcpy(cat,"REAL-");
+                    if (strcmp(partie1_1,"FLOAT") == 0 || strcmp(partie2_1,"FLOAT") == 0 && strcmp(partie1_1,"/")!=0 && strcmp(partie2_1,"/")!=0){
+                      strcpy(cat,"FLOAT-");
                       strcat(cat,temp);
                       $$=strdup(cat);
                     }
@@ -367,8 +367,8 @@ EXPRESSION: EXPRESSION plus EXPRESSION
                       printf("HIII 8!");
                       YYABORT;
                     }
-                    if (strcmp(partie1_1,"REAL") == 0 || strcmp(partie2_1,"REAL") == 0 && strcmp(partie1_1,"/")!=0 && strcmp(partie2_1,"/")!=0){
-                      strcpy(cat,"REAL-");
+                    if (strcmp(partie1_1,"FLOAT") == 0 || strcmp(partie2_1,"FLOAT") == 0 && strcmp(partie1_1,"/")!=0 && strcmp(partie2_1,"/")!=0){
+                      strcpy(cat,"FLOAT-");
                       strcat(cat,temp);
                       $$=strdup(cat);
                     }
@@ -390,8 +390,8 @@ EXPRESSION: EXPRESSION plus EXPRESSION
                       printf("HIII 9!");
                       YYABORT;
                     }
-                    if (strcmp(partie1_1,"REAL") == 0 || strcmp(partie2_1,"REAL") == 0 && strcmp(partie1_1,"/")!=0 && strcmp(partie2_1,"/")!=0){
-                      strcpy(cat,"REAL-");
+                    if (strcmp(partie1_1,"FLOAT") == 0 || strcmp(partie2_1,"FLOAT") == 0 && strcmp(partie1_1,"/")!=0 && strcmp(partie2_1,"/")!=0){
+                      strcpy(cat,"FLOAT-");
                       strcat(cat,temp);
                       $$=strdup(cat);
                     }
@@ -418,7 +418,7 @@ EXPRESSION: EXPRESSION plus EXPRESSION
                       printf("HIII 10!");
                       YYABORT;
                     }
-                    strcpy(cat,"REAL-");
+                    strcpy(cat,"FLOAT-");
                     strcat(cat,temp);
                     $$=strdup(cat);
                     remplir_quad("/",partie1_2,partie2_2,temp);
@@ -460,7 +460,7 @@ EXPRESSION: EXPRESSION plus EXPRESSION
 
           | real    
               {
-                strcpy(cat,"REAL-");
+                strcpy(cat,"FLOAT-");
                 strcat(cat,$1);
                 $$=strdup(cat);
               }                
@@ -579,7 +579,7 @@ CONDITION: po EXPRESSION OPCOMP EXPRESSION pf
                 diviserChaine($4,partie2_1,partie2_2);
                 sprintf(temp,"T%d",tmp);
                 if (strcmp(partie2_1,partie1_1)!=0 && strcmp(partie1_1,"/")!=0 && strcmp(partie2_1,"/")!=0) {
-                  if(!((strcmp(partie1_1,"REAL")==0 && strcmp(partie2_1,"INTEGER")==0) || (strcmp(partie2_1,"REAL")==0 && strcmp(partie1_1,"INTEGER")==0))){
+                  if(!((strcmp(partie1_1,"FLOAT")==0 && strcmp(partie2_1,"INTEGER")==0) || (strcmp(partie2_1,"FLOAT")==0 && strcmp(partie1_1,"INTEGER")==0))){
                     printf("\nFile '%s', line %d, character %d: semantic error : Type incompatibility.\n",file_name,nb_line,nb_character);
                     printf("HIII 13!");
                     YYABORT;

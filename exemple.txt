@@ -9,7 +9,7 @@ FLOAT n;
 INSTRUCTION {
 a=5 ;
 char[1]="y";
-n=15.2;
+n=15.3;
 c[0]=18;
 a=W;
 W=7;
