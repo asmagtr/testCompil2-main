@@ -8,13 +8,15 @@ FLOAT n;
 
 INSTRUCTION {
 a=5 ;
-char[1]="a";
-n=3; 
+char[1]="y";
+n=15.2;
+c[0]=18;
+a=W;
 W=7;
 FOR(a=1 : 2 : W){
-    c=1;
+    A=1;
 }
-    v="b" ;
+    v=char[6];
     WRITE("first: ", B, "\n");
     WRITE("second: ", E, "\n");
     WRITE("third: ", Cc, "\n");
