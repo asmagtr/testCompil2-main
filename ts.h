@@ -342,3 +342,21 @@ void afficher() {
         currentSeparator = currentSeparator->next;
     }
 }
+
+void getOperatorString(const char *op, char *result) {
+    if (strcmp(op, ">") == 0) {
+        strcpy(result, "BG");
+    } else if (strcmp(op, "==") == 0) {
+        strcpy(result, "BE");
+    } else if (strcmp(op, "<") == 0) {
+        strcpy(result, "BL");
+    } else if (strcmp(op, ">=") == 0) {
+        strcpy(result, "BGE");
+    } else if (strcmp(op, "<=") == 0) {
+        strcpy(result, "BLE");
+    } else if (strcmp(op, "!=") == 0) {
+        strcpy(result, "BNE");
+    } else {
+        strcpy(result, "UNKNOWN");
+    }
+}

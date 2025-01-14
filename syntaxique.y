@@ -14,6 +14,7 @@ char typeIDF[20];
 char savet[20];
 char para[20];
 char pas[20];
+char oper[5];
 
 char i[20];
 int deb_else;
@@ -586,7 +587,8 @@ CONDITION: po EXPRESSION OPCOMP EXPRESSION pf
                   }
                 }
                 $$=strdup(temp);
-                remplir_quad($3,partie1_2,partie2_2,temp);
+                getOperatorString($3, oper);
+                remplir_quad(oper,partie1_2,partie2_2,temp);
                 tmp++;
               }
          | po CONDITION  OPLOG  CONDITION pf
