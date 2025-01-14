@@ -230,9 +230,13 @@ AFFECTATION: idf aff EXPRESSION
                     diviserChaine($3,partie1_1,partie1_2);
                     strcpy(typeIDF,getType($1,"Variable"));
                     if (strcmp(typeIDF,partie1_1)!=0 && strcmp(typeIDF,"/")!=0 && strcmp(partie1_1,"/")!=0) {
-                      if(strcmp(typeIDF,"REAL")!=0 || strcmp(partie1_1,"INTEGER")!=0 ){
+                      if(strcmp(typeIDF,"FLOAT")!=0 || strcmp(partie1_1,"INTEGER")!=0 ){
                           printf("\nFile '%s', line %d, character %d: semantic error : Type incompatibility.\n",file_name,nb_line,nb_character);
-                          printf("HIII 4!");
+                          printf("\n HIII 4!");
+                          printf("\n partie 1: %s",partie1_1);
+                          printf("\n partie 1: %s",partie1_2);
+                          printf("\n partie 1_2: %s",$3);
+                          printf("\n ptype: %s",typeIDF);
                           
                         YYABORT;
                       }
